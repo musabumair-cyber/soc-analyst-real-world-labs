@@ -14,10 +14,10 @@ In this lab, I practiced navigating the Kali filesystem and using command-line t
 * **Network Recon:** Utilized `nslookup` and `whois` to verify domain legitimacy.
 
 ### Lab Evidence:
-![Extracting URLs with Grep](https://github.com/musabumair-cyber/soc-analyst-real-world-labs/blob/main/Screenshot%202026-04-20%20194658.png)
+![Extracting URLs with Grep](https://github.com/musabumair-cyber/soc-analyst-real-world-labs/blob/main/week-02-phishing-analysis/Images%20Proof/Screenshot%202026-04-20%20195313.png)
 *Figure 1: Using grep to identify suspicious links.*
 
-![Domain Investigation](https://github.com/musabumair-cyber/soc-analyst-real-world-labs/blob/main/whois)
+![Domain Investigation](https://github.com/musabumair-cyber/soc-analyst-real-world-labs/blob/main/week-02-phishing-analysis/Images%20Proof/Screenshot%202026-04-20%20194934.png)
 *Figure 2: Verifying the age and ownership of a suspicious domain.*
 
 ---
@@ -30,5 +30,5 @@ Today I focused on the "invisible" envelope of an email to detect spoofing.
 * **Authentication Checks:** Verified `SPF` status to detect unauthorized senders.
 
 ### Lab Evidence:
-![SPF Failure Detection](images/screenshot_spf_check.png)
+![SPF Failure Detection](https://github.com/musabumair-cyber/soc-analyst-real-world-labs/blob/main/week-02-phishing-analysis/Images%20Proof/Screenshot%202026-04-20%20204437.png)
 *Figure 3: Identifying a spoofed sender via SPF fail results.*
