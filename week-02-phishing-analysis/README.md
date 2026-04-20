@@ -14,7 +14,7 @@ In this lab, I practiced navigating the Kali filesystem and using command-line t
 * **Network Recon:** Utilized `nslookup` and `whois` to verify domain legitimacy.
 
 ### Lab Evidence:
-![Extracting URLs with Grep](images/screenshot_grep_results.png)
+![Extracting URLs with Grep](https://github.com/musabumair-cyber/soc-analyst-real-world-labs/compare/main...Images-Proof#diff-2e7ecefe01f13f6883aeddded2c5ec87cb253c51717b41914e84254ff9225d4d)
 *Figure 1: Using grep to identify suspicious links.*
 
 ![Domain Investigation](images/screenshot_whois.png)
