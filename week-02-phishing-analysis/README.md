@@ -33,7 +33,7 @@ Today I focused on the "invisible" envelope of an email to detect spoofing.
 ![SPF Failure Detection](https://github.com/musabumair-cyber/soc-analyst-real-world-labs/blob/main/week-02-phishing-analysis/Images%20Proof/Screenshot%202026-04-20%20204437.png)
 *Figure 3: Identifying a spoofed sender via SPF fail results.*
 
-
+---
 
 ## 📅 Day 3: URLs, Domains & Infrastructure Investigation
 
