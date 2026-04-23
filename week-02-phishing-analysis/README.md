@@ -137,8 +137,8 @@ Today I conducted a complete end-to-end phishing investigation, simulating a rea
 
 **Lab Evidence:**
 
-![Header Analysis and WHOIS Output](https://github.com/YOUR_USERNAME/YOUR_REPO/blob/main/screenshots/day5_headers_whois.png?raw=true)
+![Header Analysis and WHOIS Output](https://github.com/musabumair-cyber/soc-analyst-real-world-labs/blob/main/week-02-phishing-analysis/Images%20Proof/Screenshot%202026-04-23%20084727.png)
 *Figure 5: grep exposing the spoofed Return-Path domain and whois confirming the phishing domain does not exist.*
 
-![nslookup NXDOMAIN Result](https://github.com/YOUR_USERNAME/YOUR_REPO/blob/main/screenshots/day5_nslookup.png?raw=true)
+![nslookup NXDOMAIN Result](https://github.com/musabumair-cyber/soc-analyst-real-world-labs/blob/main/week-02-phishing-analysis/Images%20Proof/Screenshot%202026-04-23%20085140.png)
 *Figure 6: nslookup returning NXDOMAIN — no active infrastructure behind the malicious link.*
