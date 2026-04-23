@@ -120,3 +120,25 @@ static analysis alone was sufficient to classify both as **CRITICAL threats**.
 > `ExecutionPolicy Bypass` is an immediate escalation — no further confirmation needed.
 
 ---
+
+
+## 📅 Day 5: Full Phishing Investigation (SOC Simulation)
+
+Today I conducted a complete end-to-end phishing investigation, simulating a real SOC analyst workflow from evidence creation to final verdict.
+
+**Key Skills Demonstrated:**
+
+- **Header Forensics:** Used `grep` to extract `Return-Path`, `From`, and `Subject` — identified typo-squatted sender domain `microsft-verify.net` (missing the "o").
+- **URL Extraction:** Used `grep "http"` to pull the malicious link from the raw email body.
+- **Domain Intelligence:** Ran `whois` on the phishing domain — confirmed it does not exist in global WHOIS records ("The queried object does not exist").
+- **DNS Analysis:** Ran `nslookup` — returned `NXDOMAIN`, meaning no active server exists behind the attacker's link.
+- **Payload Analysis:** Identified a double-extension attack (`Security_Report.pdf.exe`) designed to disguise an executable as a PDF.
+- **SOC Reporting:** Documented all IOCs into a structured incident verdict with recommended actions.
+
+**Lab Evidence:**
+
+![Header Analysis and WHOIS Output](https://github.com/YOUR_USERNAME/YOUR_REPO/blob/main/screenshots/day5_headers_whois.png?raw=true)
+*Figure 5: grep exposing the spoofed Return-Path domain and whois confirming the phishing domain does not exist.*
+
+![nslookup NXDOMAIN Result](https://github.com/YOUR_USERNAME/YOUR_REPO/blob/main/screenshots/day5_nslookup.png?raw=true)
+*Figure 6: nslookup returning NXDOMAIN — no active infrastructure behind the malicious link.*
